@@ -17,8 +17,19 @@ int main()
 		overTimeWages,				//holds overtime wages
 		overTimePayRate = 27.78,	//over time pay rate
 		overTimeHours = 10,			//over time hours worked
-		totalWages,					//holds total wages
+		totalWages;					//holds total wages
 
+	//calculate regular wages 
+	regularWage = basePayRate * regularHours;
+
+	//calculate overtime wages 
+	overTimeWages = overTimeHours * overTimePayRate;
+
+	//calculate total wages 
+	totalWages = regularWage + overTimeWages;
+
+	//display wages 
+	cout << "Wages for this week are $" << totalWages << endl;
 
 	return 0;
 }
