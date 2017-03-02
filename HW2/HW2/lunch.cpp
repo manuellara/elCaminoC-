@@ -24,18 +24,19 @@ int main()
 	int amountOfMayo;
 	int slicesOfPickle;
 
-	int totalCalories;
-	int filler;
 
-	cout << setw(50);
+
+	cout << setw(50) ;
 	cout << "Welcome to my calorie counter!" << endl ;
+	cout << endl;
 
 	cout << left << setw(50);
 	cout << "Enter your name: ";
 	getline(cin, name);
+	cout << endl;
 
-	cout << left;
-	cout << "Hello " << name << ", please enter the number of ingredents used in your sandwich " << endl;
+	cout << "Hello " << name << ", please enter the number of ingredents used in your sandwich " << endl ;
+	cout << endl;
 
 	cout << left << setw(50);
 	cout << "Enter slices of bread: ";
@@ -49,13 +50,37 @@ int main()
 	cout << left << setw(50);
 	cout << "Enter slices of pickle: ";
 	cin >> slicesOfPickle;
+	cout << endl;
+
+	cout << right << setw(25);
+	cout << "bread calories: ";
+	cout << right << setw(25);
+	cout << bread * slicesOfBread << endl;
+	cout << right << setw(25);
+	cout << "cheese calories: ";
+	cout << right << setw(25);
+	cout << cheese * slicesOfCheese << endl;
+	cout << right << setw(25);
+	cout << "mayo calories: ";
+	cout << right << setw(25);
+	cout << mayo * amountOfMayo << endl;
+	cout << right << setw(25);
+	cout << "pickle calories: ";
+	cout << right << setw(25);
+	cout << pickle * slicesOfPickle << endl;
+	cout << endl;
+	cout << right << setw(25);
+	cout << "total calories: ";
+	cout << right << setw(25);
+	cout << (bread * slicesOfBread) + (cheese * slicesOfCheese) + (mayo * amountOfMayo) + (pickle * slicesOfPickle) << endl ;
+	cout << endl;
+
+	int totalCalories = (bread * slicesOfBread) + (cheese * slicesOfCheese) + (mayo * amountOfMayo) + (pickle * slicesOfPickle);
 
 
-	totalCalories = bread + cheese + mayo + pickle ;
-	// filler = 642 - totalCalories; 
-
-	cout << "There were " << totalCalories  /* + filler */ << " calories in my lunch today." << endl;
-	cout << "What's for lunch today?" << endl;
+	cout << "There were " << totalCalories  << " calories in my lunch today." << endl;
+	cout << "What's for lunch today? Funny!!!!" << endl;
+	cout << endl;
 
 
 
