@@ -15,7 +15,7 @@ int main()
 {
 	///////////// PART 1 /////////////////////
 	string name;
-	float testScore1, testScore2, testScore3, assScore, quizScore; //testScoreWeighed, progAssWeighed, quizWeighed;
+	int testScore1, testScore2, testScore3, assScore, quizScore; //testScoreWeighed, progAssWeighed, quizWeighed;
 	float testAvge, average ;
 
 	cout << endl << "Enter your full name: " ;
@@ -40,9 +40,17 @@ int main()
 
 
 	///////////// PART 3 /////////////////////
-	cout << endl << setw(20) << "Name: " << setw(20) << name ;
-	cout << endl << setw(20) << "Test Scores: " << setw(20) << testScore1 << setw(5) << testScore2 << setw(5) <<testScore3 ;
-	cout << endl << setw(20) << "Test Average: " << setw(20) << testAvge ;
+	cout << "_____________________________________________________________________________________________" << endl ;
+	cout << endl << setw(40) << "Name: " << setw(25) << name ;
+	cout << endl << setw(40) << "Test Scores: " << setw(5) << testScore1 << setw(5) << "|" << setw(5) << testScore2 << setw(5) << "|" << setw(5) << testScore3 ;
+	cout << endl << setw(40) << "Test Average: " << setw(25) << testAvge ;
+	cout << endl << setw(40) << "Quiz Score: " << setw(25) << quizScore;
+	cout << endl << setw(40) << "Assignment Score: " << setw(25) << assScore;
+	cout << endl << setw(40) << "Final Score: " << setw(25) << fixed << setprecision(2) << average;
+	cout << endl << "_____________________________________________________________________________________________" << endl;
+
+	cout << endl;
+
 
 
 	return 0;
