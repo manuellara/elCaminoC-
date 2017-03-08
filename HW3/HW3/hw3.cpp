@@ -3,6 +3,13 @@
 * HW3 - calculating test score percentage 
 * Manuel Lara
 *
+* program asks for name, test, assignment, and quiz score
+* then it calculates the percentage of each aspect 
+* finally, it prints the output 
+*
+*
+*
+*
 */
 
 #include <iostream>
@@ -15,7 +22,7 @@ int main()
 {
 	///////////// PART 1 /////////////////////
 	string name;
-	int testScore1, testScore2, testScore3, assScore, quizScore; //testScoreWeighed, progAssWeighed, quizWeighed;
+	int testScore1, testScore2, testScore3, assScore, quizScore; 
 	float testAvge, average ;
 
 	cout << endl << "Enter your full name: " ;
@@ -28,10 +35,7 @@ int main()
 	cin >> quizScore;
 	cout << endl;
 
-	// testScoreWeighed = ( (testScore1/100) + (testScore2/100) + (testScore3/100) ) * .60 ;
-	// progAssWeighed = (assScore/100) * .30 ;
-	// quizWeighed = (quizScore/100) * .10 ;
-	// cout << testScoreWeighed << endl << quizWeighed << endl << progAssWeighed <<endl ;
+	
 
 	///////////// PART 2 /////////////////////
 	testAvge = (testScore1 + testScore2 + testScore3) / 3;
