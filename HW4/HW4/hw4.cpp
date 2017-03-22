@@ -13,22 +13,22 @@
 * Second, initialize test scores (1-3) and quiz scores as integers
 * Third, initialize test average, final score, and assignment score as floats
 *
-* Prompt user to input name
-* Store user input in the name variable
-* Prompt user to enter their 3 test score and store them as testScore1 , testScore2 , testScore3 
-* Verify that input is legit 
-* Prompt user to enter their assignment score as REAL number and store it in assScore
-* Verify input is legit
-* Prompt user to enter their quiz score as integer and store it as quizScore
-* Verify input is legit
+* Prompt user to input name 
+* Store user input as name
+* Prompt user to enter their 3 test score in 1-100 range and store them as testScore1 , testScore2 , testScore3 
+* Verify that input is all INTEGER
+* Prompt user to enter their assignment score in 1-100 range as REAL number and store it in assScore
+* Verify input is REAL number
+* Prompt user to enter their quiz score in 1-100 range as INTEGER and store it as quizScore
+* Verify input is integer
 * 
 * Step 2
 * Get the test score average and set as testAverage
-* Next, calculate the final average and set weight to each criteria
+* Next, calculate the final average and set weight to each criteria and set to average
 * 
 * Step 3
 * Assign letter grades to values
-* Then print values for name, test scores (1-3), assignment score, quiz score, and final average score
+* Then print values for name, test scores (1-3), assignment score, quiz score, and average score
 * Lastly, print letter grade
 *
 *
@@ -55,7 +55,7 @@ int main()
 	/*// verification //*/
 	if (!cin)
 	{
-		cout << ("Input is not INTEGER, please try again...");
+		cout << ("Input is not INTEGER, please try again...\n");
 		return 0;
 	}
 	/*// end verification //*/
@@ -64,7 +64,7 @@ int main()
 	/*// verification //*/
 	if (!cin)
 	{
-		cout << ("Input not a REAL, please try again...");
+		cout << ("Input not a REAL, please try again...\n");
 		return 0;
 	}
 	/*// end verification //*/
@@ -73,7 +73,7 @@ int main()
 	/*// verification //*/
 	if (!cin)
 	{
-		cout << ("Input not INTEGER, please try again...");
+		cout << ("Input not INTEGER, please try again...\n");
 		return 0;
 	}
 	/*// end verification //*/
