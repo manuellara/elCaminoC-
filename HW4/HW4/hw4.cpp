@@ -52,7 +52,6 @@ int main()
 	getline(cin, name);
 	cout << endl << "Enter 3 INTEGER numbers for TEST scores separated by spaces: ";
 	cin >> testScore1 >> testScore2 >> testScore3;
-	/*// verification //*/
 	if (!cin )
 	{
 		cout << ("Input is not INTEGER, please try again...\n");
@@ -64,9 +63,9 @@ int main()
 		return 0;
 	}
 	/*// end verification //*/
+
 	cout << endl << "Enter ASSIGNMENT score as REAL number: ";
 	cin >> assScore;
-	/*// verification //*/
 	if (!cin)
 	{
 		cout << ("Input not a REAL, please try again...\n");
@@ -78,20 +77,21 @@ int main()
 		return 0;
 	}
 	/*// end verification //*/
+
 	cout << endl << "Enter an INTEGER number for QUIZ score: ";
 	cin >> quizScore;
-	/*// verification //*/
 	if (!cin)
 	{
 		cout << ("Input not INTEGER, please try again...\n");
 		return 0;
 	}
-	else if (quizScore < 0 || quizScore> 100 )
+	else if (quizScore < 0 || quizScore > 100 )
 	{
 		cout << "Input is not IN RANGE, please try again...\n";
 		return 0;
 	}
 	/*// end verification //*/
+
 	cout << endl;
 
 
