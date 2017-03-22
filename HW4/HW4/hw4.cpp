@@ -53,9 +53,14 @@ int main()
 	cout << endl << "Enter 3 INTEGER numbers for TEST scores separated by spaces: ";
 	cin >> testScore1 >> testScore2 >> testScore3;
 	/*// verification //*/
-	if (!cin)
+	if (!cin )
 	{
 		cout << ("Input is not INTEGER, please try again...\n");
+		return 0;
+	}
+	else if (testScore1 < 0 || testScore1 > 100 || testScore2 < 0 || testScore2 > 100 || testScore3 < 0 || testScore3 > 100)
+	{
+		cout << "Input is not IN RANGE, please try again...\n";
 		return 0;
 	}
 	/*// end verification //*/
@@ -67,6 +72,11 @@ int main()
 		cout << ("Input not a REAL, please try again...\n");
 		return 0;
 	}
+	else if (assScore < 0 || assScore > 100 )
+	{
+		cout << "Input is not IN RANGE, please try again...\n";
+		return 0;
+	}
 	/*// end verification //*/
 	cout << endl << "Enter an INTEGER number for QUIZ score: ";
 	cin >> quizScore;
@@ -74,6 +84,11 @@ int main()
 	if (!cin)
 	{
 		cout << ("Input not INTEGER, please try again...\n");
+		return 0;
+	}
+	else if (quizScore < 0 || quizScore> 100 )
+	{
+		cout << "Input is not IN RANGE, please try again...\n";
 		return 0;
 	}
 	/*// end verification //*/
