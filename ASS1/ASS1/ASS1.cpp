@@ -82,7 +82,8 @@ int main()
 					cout << "Years to pay loan: " << yearsToPay << endl;
 					cout << "# of Monthly Payments: " << n << endl;
 					/*Ammortization Table*/
-					cout << "\n\n\nPayment #" << " " << "Payment Amount" << " " << "Interest" << " " << "Principal" << " " << "Ending Balance" << endl;
+					cout << left;
+					cout << "\n\n\nPayment #" << setw(20) << "Payment Amount" << setw(15) << "Interest" << setw(15) << "Principal" << setw(15) << "Ending Balance" << endl;
 					float ending = P;
 					for (int counter = 0; counter < n + 1; counter++)
 					{
@@ -91,7 +92,7 @@ int main()
 						float principal = mp - inter ;
 
 						cout << fixed << setprecision(2);
-						cout << counter << setw(15) << mp << setw(15) << inter << setw(15) << principal << setw(15) << ending << endl;
+						cout << setw(15) << counter << setw(15) << mp << setw(15) << inter << setw(15) << principal << setw(15) << ending << endl;
 						ending = ending - principal;
 
 					}
@@ -104,8 +105,5 @@ int main()
 		cout << "...goodbye." << endl;
 		exit(0);
 	}
-
-
-
 
 }
