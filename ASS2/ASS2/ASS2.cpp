@@ -110,6 +110,13 @@ int main()
 		fin >> ID >> salary;
 		fin.ignore(128, '\n');
 
+		///////////////bad/invalid data check
+		if (name == "" || ID == "" || salary == 0)
+		{
+			cout << "Bad data in file" << endl;
+			exit(0);
+		}
+
 		/////////table header 
 		if (count == 0)
 		{
