@@ -1,6 +1,154 @@
 /*
 CS 1 - Final Project 
 Manuel Lara
+
+int main()
+	CALLS menu()
+
+string fileInput()
+	takes 1 parameter : fin passed as reference 
+	ask user to input data file to read from
+	check to see if file exists
+	if not
+		loop and ask the user reenter a different file
+		if file exists
+			exit loop
+	return file name
+
+void menuOptions()
+		output of menu options 
+
+string waitForChar()
+	waits for input
+	return the first char of input
+
+void addNewCustomer()
+	takes 1 parameter : temp is passed by reference 
+	ask user for first name , last name , city , state , address , and balance  
+	check to make sure balance input is valid
+	store them as values for temp
+
+string removeCustomer()
+	ask user who they would like to remove
+	return input 
+
+string balanceWithdraw()
+	ask user who they want to make a withdraw from 
+	return input
+
+float withdrawAmoutn()
+	ask user how much they would like to withdraw
+	return amount
+
+string balanceDeposit()
+	ask user for user you want to make a deposit in
+	return input 
+
+float depositAmount()
+	ask user for amount to be deposited 
+	return amount 
+
+string outputFileName()
+	ask user for output file name
+	return output file name
+
+string sortListPrompt()
+	display sorting menu 
+	ask user to select sorting option
+	return first char of input 
+
+string enterName()
+	ask user for the name of whose record to display
+	return input
+
+void menu()
+	CALL fileInput and pass fin 
+	store result in target
+
+	open target
+
+	enter loop while not the end of file
+		pick up title
+		enter for loop to iterate 3 times
+			pick up last name , first name , address , city , state , balance
+
+	enter do-while loop while input is not x and array is not full
+		CALL menuOptions()
+		CALL waitForChar() and store the result in m
+
+		if user selects a
+			CALL addNewCustomer() and pass temp
+			check if name in list
+			if same name is detected
+				ask user to input different name
+			set temp to current element in customer array
+			increment size
+			clear screen
+
+		if user selects r
+			CALL removeCustomer() and store result in ntarget
+			store current size of array to temp variable 
+
+			iterate through array
+				if name is found, 
+					move all elements up 1
+					decrease logical size of array by 1
+
+				else if counter equals size at the end 
+					record was not found
+
+		if user selects p
+			print header
+			if size equals 0
+				print error statement
+
+			else 
+				iterate through array 
+					print elements in tabular format
+
+		if user selects w
+			CALL balanceWithdraw() and store result in target
+			for the length of the logical size
+				if target matches element last name
+					CALL withdrawAmount() and store in wAmount
+						if wAmount is larger than element balance, 
+							enter loop and keep asking until condition is met
+								break
+						subtract wAmount from element balance
+					else
+						subtract wAmount from element balance
+				else
+					print error statement 
+
+		if user selects d
+			CALL balamceDeposite() and store variable in target
+			iterate through list and find corresponding name
+				if name found 
+					CALL depositAmount() and store variable in dAmount
+					add dMount to current balance
+				else 
+					print error message
+
+		if user selects s
+			CALL outputFileName() and store variable in target
+			open file
+			prints record to file
+			close file
+
+		if user selects t
+		CALL sortListPrompt() and store in starget
+
+		ask user whether they want to sort by name , city , or balance 
+		bubble sort the selection
+
+		if user selects v
+		CALL enterName() and store value in ptarget
+		iterate through customers 
+		if ptarget matched a record
+			print the record
+
+	
+
 */
 
 
@@ -34,7 +182,7 @@ string enterName();
 
 int main()
 {
-	menu();														//calls menu and passes array of accounts called 'aList'
+	menu();														//calls menu
 }
 
 void menu()
@@ -78,7 +226,7 @@ void menu()
 
 	do
 	{
-		cout << "\n\nWelcome to " << title << "!";
+		cout << "\n\nWelcome to First Bank of ECC!";
 
 		cout << "\n\nChoose an option...";
 
@@ -89,6 +237,27 @@ void menu()
 		if (m == "a" || m == "A")
 		{
 			addNewCustomer(temp);											//CALLS addNewCustomer and passes temp
+
+			for (int i = 0 ; i < size ; i++)								//iterates through array
+			{
+				if (temp.lastName == customer[i].lastName )					//compares last name
+				{
+					while (true)											//if last names are the same, enter loop
+					{
+						cout << "\n\nSame name detected ; pick a different name. : ";			//error message
+
+						getline(cin , temp.lastName);								//call addNewCustomer and pass temp
+
+						if (temp.lastName != customer[i].lastName)			//if new temp last name not equal to current 
+						{
+							break;
+							
+						}
+
+					}
+				}
+			}
+
 			customer[size] = temp;											//set customer index to temp
 			size++;															//increase size
 			system("cls");													//clear screen
@@ -379,11 +548,11 @@ string fileInput(ifstream &fin)
 {
 	string target;
 
-	//cout << "\n\nEnter input file path: ";
+	cout << "\n\nEnter input file path: ";
 
-	target = "Final_Sp17.txt";
+	//target = "Final_Sp17.txt";									//uncomment to automate 
 
-	//getline(cin, target);
+	getline(cin, target);
 
 	fin.open(target);
 
@@ -403,6 +572,11 @@ string fileInput(ifstream &fin)
 			}
 		}
 	}
+
+	cout << "\n\nCongrats, you added records!";
+
+	cin.get();
+	system("cls");
 
 	return target;
 }
@@ -448,7 +622,23 @@ void addNewCustomer(account &temp)
 	getline(cin, temp.state);
 	cout << "\n\nEnter the BALANCE : ";
 	cin >> temp.balance;
-	cin.ignore(128, '\n');
+
+	while (!cin)
+	{
+		cin.clear();									//clears error
+		cin.ignore(128, '\n');							//removes the \n
+
+		cout << "\n\nInvalid Balance, try again : ";
+		cin >> temp.balance;
+		cin.ignore(128, '\n');							//removes the \n
+
+		if (cin)
+		{
+			break;
+		}
+	}
+
+
 
 	cout << "\n\nCongrats, you've added a customer!" << endl;
 	cin.get();
@@ -484,7 +674,22 @@ float withdrawAmount()
 	cin >> withdrawAmount;
 	cin.ignore(128, '\n');
 
+	while (!cin)
+	{
+		cin.clear();									//clears error
+		cin.ignore(128, '\n');							//removes the \n
+
+		cout << "\n\nInvalid withdraw amount; try again : ";
+		cin >> withdrawAmount;
+		cin.ignore(128, '\n');							//removes the \n
+
+		if (cin)
+		{
+			break;
+		}
+
 	return withdrawAmount;
+	}
 }
 
 string balanceDeposit()
@@ -505,6 +710,21 @@ float depositAmount()
 	cout << "\n\nHow much would you like to deposit: ";
 	cin >> depositAmount;
 	cin.ignore(128, '\n');
+
+	while (!cin)
+	{
+		cin.clear();									//clears error
+		cin.ignore(128, '\n');							//removes the \n
+
+		cout << "\n\nInvalid deposit amount; try again : ";
+		cin >> depositAmount;
+		cin.ignore(128, '\n');							//removes the \n
+
+		if (cin)
+		{
+			break;
+		}
+	}
 
 	return depositAmount;
 }
